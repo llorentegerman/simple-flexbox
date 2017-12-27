@@ -1,0 +1,29 @@
+{
+  "name": "simple-flexbox",
+  "version": "1.0.0",
+  "description": "A simple component to make layouts with Flexbox",
+  "main": "build/index.js",
+  "author": {
+    "name": "Germán Llorente",
+    "email": "llorentegerman@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
