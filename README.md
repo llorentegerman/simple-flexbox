@@ -2,10 +2,15 @@
 
 A simple component to make layouts with Flexbox.
 
+## Installation
+
+`npm install simple-flexbox` or `yarn add simple-flexbox`
+
+## Examples
+
 See examples in [storybook](https://llorentegerman.github.io/simple-flexbox-storybook/storybook-static).
 
 There are two principal components, `Column` and `Row`.
-
 
 ```html
 <Row vertical='center' horizontal='spaced'>
