@@ -2,10 +2,9 @@
 
 A simple component to make layouts with Flexbox.
 
-See examples in [storybook](https://github.com/trytrytrytry/README.md).
+See examples in [storybook](https://llorentegerman.github.io/simple-flexbox-storybook/storybook-static).
 
 There are two principal components, `Column` and `Row`.
-
 
 
 ```html
@@ -22,7 +21,7 @@ There are two principal components, `Column` and `Row`.
 </Row>
 ```
 
-This is [on GitHub](https://github.com/jbt/markdown-editor) so let me know if I've b0rked it somewhere.
+[![Edit simple-flexbox examples](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/z3p04l3vol?module=%2Fexamples%2Findex.js)
 
 
 # Row props
@@ -57,3 +56,9 @@ This is [on GitHub](https://github.com/jbt/markdown-editor) so let me know if I'
 License
 -------
 This software is released under the [MIT License](https://github.com/okunishinishi/node-mysqlspec/blob/master/LICENSE).
+
+Author
+-------
+![me](https://avatars3.githubusercontent.com/u/21162888?s=100&v=4)
+
+[Germán Llorente](https://github.com/llorentegerman)
