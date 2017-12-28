@@ -40,6 +40,8 @@ There are two principal components, `Column` and `Row`.
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (vertical) axis	|
 |alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (vertical) axis	|
 |flex|	number|		|
+|wrap|	true or false|	default: false	|
+|wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |children|	|	required	|
 
@@ -55,6 +57,8 @@ There are two principal components, `Column` and `Row`.
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (horizontal) axis	|
 |alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (horizontal) axis	|
 |flex|	number|		|
+|wrap|	true or false|	default: false	|
+|wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |children|	|	required	|
 
