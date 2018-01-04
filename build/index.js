@@ -597,7 +597,9 @@ var Layout = exports.Layout = function (_React$Component) {
             var direction = { flexDirection: 'row' }; // default row
             if (column) {
                 direction = { flexDirection: 'column' };
-            } else if (rowReverse) {
+            }
+
+            if (rowReverse) {
                 direction = { flexDirection: 'row-reverse' };
             } else if (columnReverse) {
                 direction = { flexDirection: 'column-reverse' };

@@ -1,6 +1,6 @@
 {
   "name": "simple-flexbox",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A simple component to make layouts with Flexbox",
   "main": "build/index.js",
   "author": {
