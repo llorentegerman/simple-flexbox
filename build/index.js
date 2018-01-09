@@ -590,8 +590,7 @@ var Layout = exports.Layout = function (_React$Component) {
                 wrap = _props$wrap === undefined ? false : _props$wrap,
                 _props$wrapReverse = _props.wrapReverse,
                 wrapReverse = _props$wrapReverse === undefined ? false : _props$wrapReverse,
-                _props$flexGrow = _props.flexGrow,
-                flexGrow = _props$flexGrow === undefined ? 1 : _props$flexGrow,
+                flexGrow = _props.flexGrow,
                 ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignItems', 'alignSelf', 'alignContent', 'wrap', 'wrapReverse', 'flexGrow']);
 
             var direction = { flexDirection: 'row' }; // default row
@@ -620,11 +619,11 @@ var Layout = exports.Layout = function (_React$Component) {
 
             var alignContentStyle = alignContent && { alignContent: this.getMainAxisAlign(alignContent) } || {};
 
+            var flexGrowStyle = flexGrow && { flexGrow: flexGrow } || {};
+
             var layoutStyles = _extends({
                 display: 'flex'
-            }, direction, justifyContentStyle, alignItemsStyle, alignSelfStyle, alignContentStyle, flexWrap, {
-                flexGrow: flexGrow
-            }, style);
+            }, direction, justifyContentStyle, alignItemsStyle, alignSelfStyle, alignContentStyle, flexWrap, flexGrowStyle, style);
 
             return _react2.default.createElement(
                 'div',
@@ -675,8 +674,7 @@ var Row = exports.Row = function (_React$Component2) {
             var _props2 = this.props,
                 _props2$reverse = _props2.reverse,
                 reverse = _props2$reverse === undefined ? false : _props2$reverse,
-                _props2$flex = _props2.flex,
-                flex = _props2$flex === undefined ? 1 : _props2$flex,
+                flex = _props2.flex,
                 vertical = _props2.vertical,
                 horizontal = _props2.horizontal,
                 justifyContent = _props2.justifyContent,
@@ -732,8 +730,7 @@ var Column = exports.Column = function (_React$Component3) {
             var _props3 = this.props,
                 _props3$reverse = _props3.reverse,
                 reverse = _props3$reverse === undefined ? false : _props3$reverse,
-                _props3$flex = _props3.flex,
-                flex = _props3$flex === undefined ? 1 : _props3$flex,
+                flex = _props3.flex,
                 vertical = _props3.vertical,
                 horizontal = _props3.horizontal,
                 justifyContent = _props3.justifyContent,

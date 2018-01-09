@@ -70,7 +70,7 @@ export class Layout extends React.Component {
             wrap = false,
             wrapReverse = false,
 
-            flexGrow = 1,
+            flexGrow,
 
             ...ownProps
         } = this.props;
@@ -95,14 +95,16 @@ export class Layout extends React.Component {
             flexWrap = { flexWrap: 'wrap-reverse' };
         }
 
-        let justifyContentStyle = justifyContent && { justifyContent: this.getMainAxisAlign(justifyContent) } || {};
+        const justifyContentStyle = justifyContent && { justifyContent: this.getMainAxisAlign(justifyContent) } || {};
 
-        let alignItemsStyle = alignItems && { alignItems: this.getCrossAxisAlign(alignItems) } || {};
+        const alignItemsStyle = alignItems && { alignItems: this.getCrossAxisAlign(alignItems) } || {};
 
-        let alignSelfStyle = alignSelf && { alignSelf: this.getCrossAxisAlign(alignSelf) } || {};
+        const alignSelfStyle = alignSelf && { alignSelf: this.getCrossAxisAlign(alignSelf) } || {};
 
-        let alignContentStyle = alignContent && { alignContent: this.getMainAxisAlign(alignContent) } || {};
+        const alignContentStyle = alignContent && { alignContent: this.getMainAxisAlign(alignContent) } || {};
 
+        const flexGrowStyle = flexGrow && { flexGrow: flexGrow } || {};
+        
         const layoutStyles = {
             display: 'flex',
             ...direction,
@@ -111,7 +113,7 @@ export class Layout extends React.Component {
             ...alignSelfStyle,
             ...alignContentStyle,
             ...flexWrap,
-            flexGrow: flexGrow,
+            ...flexGrowStyle,
             ...style
         };
 
@@ -138,7 +140,7 @@ export class Row extends React.Component {
     };
 
     render() {
-        const { reverse = false, flex = 1, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, ...ownProps } = this.props;
+        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, ...ownProps } = this.props;
 
         const rowReverse = reverse;
 
@@ -173,7 +175,7 @@ export class Column extends React.Component {
     };
 
     render() {
-        const { reverse = false, flex = 1, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, ...ownProps } = this.props;
+        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, ...ownProps } = this.props;
 
         const columnReverse = reverse;
 

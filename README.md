@@ -8,7 +8,7 @@ A simple component to make layouts with Flexbox.
 
 ## Examples
 
-See examples in [storybook](https://llorentegerman.github.io/simple-flexbox-storybook/storybook-static).
+See examples in [storybook](https://llorentegerman.github.io/simple-flexbox-storybook/storybook-static/?full=0&down=1&left=1&panelRight=1&downPanel=storybooks%2Fstorybook-addon-knobs).
 
 There are two principal components, `Column` and `Row`.
 
