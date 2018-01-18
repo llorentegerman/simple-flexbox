@@ -8,7 +8,7 @@ A simple component to make layouts with Flexbox.
 
 ## Examples
 
-See examples in [storybook](https://llorentegerman.github.io/simple-flexbox-storybook/storybook-static/?full=0&down=1&left=1&panelRight=1&downPanel=storybooks%2Fstorybook-addon-knobs).
+See examples in [codesandbox](https://codesandbox.io/s/z3p04l3vol) or [storybook](https://llorentegerman.github.io/simple-flexbox-storybook/storybook-static/?full=0&down=1&left=1&panelRight=1&downPanel=storybooks%2Fstorybook-addon-knobs).
 
 There are two principal components, `Column` and `Row`.
 
@@ -25,9 +25,7 @@ There are two principal components, `Column` and `Row`.
     </Column>
 </Row>
 ```
-
-<iframe src="https://codesandbox.io/embed/z3p04l3vol" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
-
+[![Edit simple-flexbox examples](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/z3p04l3vol)
 
 # Row props
 |property|accepted values|description|
