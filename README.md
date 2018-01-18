@@ -26,7 +26,7 @@ There are two principal components, `Column` and `Row`.
 </Row>
 ```
 
-[![Edit simple-flexbox examples](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/z3p04l3vol?module=%2Fexamples%2Findex.js)
+<iframe src="https://codesandbox.io/embed/z3p04l3vol" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 
 # Row props
@@ -39,7 +39,8 @@ There are two principal components, `Column` and `Row`.
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **rows**, *vertical* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (vertical) axis	|
 |alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (vertical) axis	|
-|flex|	number|		|
+|flex|	number|		flex-grow |
+|flexBasis|	string|		flex-basis |
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
@@ -56,7 +57,8 @@ There are two principal components, `Column` and `Row`.
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **column**, *horizontal* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (horizontal) axis	|
 |alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (horizontal) axis	|
-|flex|	number|		|
+|flex|	number|		flex-grow |
+|flexBasis|	string|		flex-basis |
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|

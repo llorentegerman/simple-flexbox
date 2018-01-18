@@ -23,6 +23,8 @@ export class Layout extends React.Component {
 
         flexGrow: PropTypes.number,
 
+        flexBasis: PropTypes.string,
+
         children: PropTypes.node.isRequired
     };
 
@@ -71,6 +73,7 @@ export class Layout extends React.Component {
             wrapReverse = false,
 
             flexGrow,
+            flexBasis,
 
             ...ownProps
         } = this.props;
@@ -104,6 +107,8 @@ export class Layout extends React.Component {
         const alignContentStyle = alignContent && { alignContent: this.getMainAxisAlign(alignContent) } || {};
 
         const flexGrowStyle = flexGrow && { flexGrow: flexGrow } || {};
+
+        const flexBasisStyle = flexBasis && { flexBasis } || {};
         
         const layoutStyles = {
             display: 'flex',
@@ -114,6 +119,7 @@ export class Layout extends React.Component {
             ...alignContentStyle,
             ...flexWrap,
             ...flexGrowStyle,
+            ...flexBasisStyle,
             ...style
         };
 
@@ -136,11 +142,12 @@ export class Row extends React.Component {
         alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
 
         flex: PropTypes.number,
+        flexBasis: PropTypes.string,
         children: PropTypes.node.isRequired
     };
 
     render() {
-        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, ...ownProps } = this.props;
+        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, flexBasis, ...ownProps } = this.props;
 
         const rowReverse = reverse;
 
@@ -150,6 +157,7 @@ export class Row extends React.Component {
                 justifyContent={horizontal || justifyContent}
                 alignSelf={alignSelf}
                 alignContent={alignContent}
+                flexBasis={flexBasis}
                 {...ownProps}>
                 {this.props.children}
             </Layout>
@@ -171,11 +179,12 @@ export class Column extends React.Component {
         alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
 
         flex: PropTypes.number,
+        flexBasis: PropTypes.string,
         children: PropTypes.node.isRequired
     };
 
     render() {
-        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, ...ownProps } = this.props;
+        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, flexBasis, ...ownProps } = this.props;
 
         const columnReverse = reverse;
 
@@ -185,6 +194,7 @@ export class Column extends React.Component {
                 justifyContent={vertical || justifyContent}
                 alignSelf={alignSelf}
                 alignContent={alignContent}
+                flexBasis={flexBasis}
                 {...ownProps}>
                 {this.props.children}
             </Layout>
