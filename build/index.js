@@ -591,8 +591,10 @@ var Layout = exports.Layout = function (_React$Component) {
                 _props$wrapReverse = _props.wrapReverse,
                 wrapReverse = _props$wrapReverse === undefined ? false : _props$wrapReverse,
                 flexGrow = _props.flexGrow,
+                flexShrink = _props.flexShrink,
                 flexBasis = _props.flexBasis,
-                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignItems', 'alignSelf', 'alignContent', 'wrap', 'wrapReverse', 'flexGrow', 'flexBasis']);
+                flex = _props.flex,
+                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignItems', 'alignSelf', 'alignContent', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex']);
 
             var direction = { flexDirection: 'row' }; // default row
             if (column) {
@@ -622,11 +624,15 @@ var Layout = exports.Layout = function (_React$Component) {
 
             var flexGrowStyle = flexGrow && { flexGrow: flexGrow } || {};
 
+            var flexShrinkStyle = flexShrink && { flexShrink: flexShrink } || {};
+
             var flexBasisStyle = flexBasis && { flexBasis: flexBasis } || {};
+
+            var flexStyle = flex && { flex: flex } || {};
 
             var layoutStyles = _extends({
                 display: 'flex'
-            }, direction, justifyContentStyle, alignItemsStyle, alignSelfStyle, alignContentStyle, flexWrap, flexGrowStyle, flexBasisStyle, style);
+            }, direction, justifyContentStyle, alignItemsStyle, alignSelfStyle, alignContentStyle, flexWrap, flexGrowStyle, flexShrinkStyle, flexBasisStyle, flexStyle, style);
 
             return _react2.default.createElement(
                 'div',
@@ -659,7 +665,11 @@ Layout.propTypes = {
 
     flexGrow: _propTypes2.default.number,
 
+    flexShrink: _propTypes2.default.number,
+
     flexBasis: _propTypes2.default.string,
+
+    flex: _propTypes2.default.string,
 
     children: _propTypes2.default.node.isRequired
 };
@@ -679,26 +689,32 @@ var Row = exports.Row = function (_React$Component2) {
             var _props2 = this.props,
                 _props2$reverse = _props2.reverse,
                 reverse = _props2$reverse === undefined ? false : _props2$reverse,
-                flex = _props2.flex,
                 vertical = _props2.vertical,
                 horizontal = _props2.horizontal,
                 justifyContent = _props2.justifyContent,
                 alignItems = _props2.alignItems,
                 alignSelf = _props2.alignSelf,
                 alignContent = _props2.alignContent,
+                flex = _props2.flex,
+                flexGrow = _props2.flexGrow,
+                flexShrink = _props2.flexShrink,
                 flexBasis = _props2.flexBasis,
-                ownProps = _objectWithoutProperties(_props2, ['reverse', 'flex', 'vertical', 'horizontal', 'justifyContent', 'alignItems', 'alignSelf', 'alignContent', 'flexBasis']);
+                ownProps = _objectWithoutProperties(_props2, ['reverse', 'vertical', 'horizontal', 'justifyContent', 'alignItems', 'alignSelf', 'alignContent', 'flex', 'flexGrow', 'flexShrink', 'flexBasis']);
 
             var rowReverse = reverse;
 
             return _react2.default.createElement(
                 Layout,
-                _extends({ rowReverse: rowReverse, flexGrow: flex,
+                _extends({
+                    rowReverse: rowReverse,
                     alignItems: vertical || alignItems,
                     justifyContent: horizontal || justifyContent,
                     alignSelf: alignSelf,
                     alignContent: alignContent,
-                    flexBasis: flexBasis
+                    flexGrow: flexGrow,
+                    flexBasis: flexBasis,
+                    flexShrink: flexShrink,
+                    flex: flex
                 }, ownProps),
                 this.props.children
             );
@@ -718,7 +734,9 @@ Row.propTypes = {
     alignSelf: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
     alignContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
 
-    flex: _propTypes2.default.number,
+    flex: _propTypes2.default.string,
+    flexGrow: _propTypes2.default.number,
+    flexShrink: _propTypes2.default.number,
     flexBasis: _propTypes2.default.string,
     children: _propTypes2.default.node.isRequired
 };
@@ -738,26 +756,32 @@ var Column = exports.Column = function (_React$Component3) {
             var _props3 = this.props,
                 _props3$reverse = _props3.reverse,
                 reverse = _props3$reverse === undefined ? false : _props3$reverse,
-                flex = _props3.flex,
                 vertical = _props3.vertical,
                 horizontal = _props3.horizontal,
                 justifyContent = _props3.justifyContent,
                 alignItems = _props3.alignItems,
                 alignSelf = _props3.alignSelf,
                 alignContent = _props3.alignContent,
+                flex = _props3.flex,
+                flexGrow = _props3.flexGrow,
+                flexShrink = _props3.flexShrink,
                 flexBasis = _props3.flexBasis,
-                ownProps = _objectWithoutProperties(_props3, ['reverse', 'flex', 'vertical', 'horizontal', 'justifyContent', 'alignItems', 'alignSelf', 'alignContent', 'flexBasis']);
+                ownProps = _objectWithoutProperties(_props3, ['reverse', 'vertical', 'horizontal', 'justifyContent', 'alignItems', 'alignSelf', 'alignContent', 'flex', 'flexGrow', 'flexShrink', 'flexBasis']);
 
             var columnReverse = reverse;
 
             return _react2.default.createElement(
                 Layout,
-                _extends({ column: true, columnReverse: columnReverse, flexGrow: flex,
+                _extends({ column: true,
+                    columnReverse: columnReverse,
                     alignItems: horizontal || alignItems,
                     justifyContent: vertical || justifyContent,
                     alignSelf: alignSelf,
                     alignContent: alignContent,
-                    flexBasis: flexBasis
+                    flexGrow: flexGrow,
+                    flexBasis: flexBasis,
+                    flexShrink: flexShrink,
+                    flex: flex
                 }, ownProps),
                 this.props.children
             );
@@ -777,7 +801,9 @@ Column.propTypes = {
     alignSelf: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
     alignContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
 
-    flex: _propTypes2.default.number,
+    flex: _propTypes2.default.string,
+    flexGrow: _propTypes2.default.number,
+    flexShrink: _propTypes2.default.number,
     flexBasis: _propTypes2.default.string,
     children: _propTypes2.default.node.isRequired
 };

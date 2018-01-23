@@ -23,7 +23,11 @@ export class Layout extends React.Component {
 
         flexGrow: PropTypes.number,
 
+        flexShrink: PropTypes.number,
+
         flexBasis: PropTypes.string,
+
+        flex: PropTypes.string,
 
         children: PropTypes.node.isRequired
     };
@@ -73,7 +77,9 @@ export class Layout extends React.Component {
             wrapReverse = false,
 
             flexGrow,
+            flexShrink,
             flexBasis,
+            flex,
 
             ...ownProps
         } = this.props;
@@ -82,7 +88,7 @@ export class Layout extends React.Component {
         if (column) {
             direction = { flexDirection: 'column' };
         }
-        
+
         if (rowReverse) {
             direction = { flexDirection: 'row-reverse' };
         }
@@ -106,10 +112,14 @@ export class Layout extends React.Component {
 
         const alignContentStyle = alignContent && { alignContent: this.getMainAxisAlign(alignContent) } || {};
 
-        const flexGrowStyle = flexGrow && { flexGrow: flexGrow } || {};
+        const flexGrowStyle = flexGrow && { flexGrow } || {};
+
+        const flexShrinkStyle = flexShrink && { flexShrink } || {};
 
         const flexBasisStyle = flexBasis && { flexBasis } || {};
-        
+
+        const flexStyle = flex && { flex } || {};
+
         const layoutStyles = {
             display: 'flex',
             ...direction,
@@ -119,7 +129,9 @@ export class Layout extends React.Component {
             ...alignContentStyle,
             ...flexWrap,
             ...flexGrowStyle,
+            ...flexShrinkStyle,
             ...flexBasisStyle,
+            ...flexStyle,
             ...style
         };
 
@@ -141,23 +153,30 @@ export class Row extends React.Component {
         alignSelf: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
         alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
 
-        flex: PropTypes.number,
+        flex: PropTypes.string,
+        flexGrow: PropTypes.number,
+        flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
         children: PropTypes.node.isRequired
     };
 
     render() {
-        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, flexBasis, ...ownProps } = this.props;
+        const { reverse = false, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent,
+            flex, flexGrow, flexShrink, flexBasis, ...ownProps } = this.props;
 
         const rowReverse = reverse;
 
         return (
-            <Layout rowReverse={rowReverse} flexGrow={flex}
+            <Layout
+                rowReverse={rowReverse}
                 alignItems={vertical || alignItems}
                 justifyContent={horizontal || justifyContent}
                 alignSelf={alignSelf}
                 alignContent={alignContent}
+                flexGrow={flexGrow}
                 flexBasis={flexBasis}
+                flexShrink={flexShrink}
+                flex={flex}
                 {...ownProps}>
                 {this.props.children}
             </Layout>
@@ -178,23 +197,30 @@ export class Column extends React.Component {
         alignSelf: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
         alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
 
-        flex: PropTypes.number,
+        flex: PropTypes.string,
+        flexGrow: PropTypes.number,
+        flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
         children: PropTypes.node.isRequired
     };
 
     render() {
-        const { reverse = false, flex, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent, flexBasis, ...ownProps } = this.props;
+        const { reverse = false, vertical, horizontal, justifyContent, alignItems, alignSelf, alignContent,
+            flex, flexGrow, flexShrink, flexBasis, ...ownProps } = this.props;
 
         const columnReverse = reverse;
 
         return (
-            <Layout column columnReverse={columnReverse} flexGrow={flex}
+            <Layout column
+                columnReverse={columnReverse}
                 alignItems={horizontal || alignItems}
                 justifyContent={vertical || justifyContent}
                 alignSelf={alignSelf}
                 alignContent={alignContent}
+                flexGrow={flexGrow}
                 flexBasis={flexBasis}
+                flexShrink={flexShrink}
+                flex={flex}
                 {...ownProps}>
                 {this.props.children}
             </Layout>

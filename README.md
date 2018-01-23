@@ -37,7 +37,9 @@ There are two principal components, `Column` and `Row`.
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **rows**, *vertical* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (vertical) axis	|
 |alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (vertical) axis	|
-|flex|	number|		flex-grow |
+|flex|	string|		shorthand for grow, shrink and basis |
+|flexGrow|	number|		flex-grow |
+|flexShrink|	string|		flex-shrink |
 |flexBasis|	string|		flex-basis |
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
@@ -55,7 +57,9 @@ There are two principal components, `Column` and `Row`.
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **column**, *horizontal* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (horizontal) axis	|
 |alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (horizontal) axis	|
-|flex|	number|		flex-grow |
+|flex|	string|		shorthand for grow, shrink and basis |
+|flexGrow|	number|		flex-grow |
+|flexShrink|	string|		flex-shrink |
 |flexBasis|	string|		flex-basis |
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
