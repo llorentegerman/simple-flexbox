@@ -45,6 +45,11 @@ There are two principal components, `Column` and `Row`.
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |children|	|	required	|
+|onXSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 479px
+|onSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 768px
+|onMedium|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 968px
+|onLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 1440px
+|onExtraLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth >= largeScreenWidth
 
 
 # Column props
@@ -65,6 +70,11 @@ There are two principal components, `Column` and `Row`.
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |children|	|	required	|
+|onXSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 479px
+|onSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 768px
+|onMedium|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 968px
+|onLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 1440px
+|onExtraLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth >= largeScreenWidth
 
 License
 -------
