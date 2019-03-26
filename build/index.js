@@ -544,7 +544,7 @@ var Layout = exports.Layout = function (_React$Component) {
             var layoutStyles = _extends({
                 display: 'flex'
             }, direction, justifyContentStyle, alignItemsStyle, alignSelfStyle, alignContentStyle, flexWrap, flexGrowStyle, flexShrinkStyle, flexBasisStyle, flexStyle, onXSmallStyle, onSmallStyle, onMediumStyle, onLargeStyle, onExtraLargeStyle, style);
-            console.log(onSmall);
+
             return _react2.default.createElement(
                 'div',
                 _extends({ style: layoutStyles }, ownProps),
