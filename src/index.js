@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as media from './media-queries';
 
 export class Layout extends React.Component {
 
@@ -28,6 +29,16 @@ export class Layout extends React.Component {
         flexBasis: PropTypes.string,
 
         flex: PropTypes.string,
+
+        onXSmall: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
+
+        onSmall: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
+
+        onMedium: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
+
+        onLarge: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
+
+        onExtraLarge: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
 
         children: PropTypes.node.isRequired
     };
@@ -81,6 +92,12 @@ export class Layout extends React.Component {
             flexBasis,
             flex,
 
+            onXSmall,
+            onSmall,
+            onMedium,
+            onLarge,
+            onExtraLarge,
+
             ...ownProps
         } = this.props;
 
@@ -120,6 +137,12 @@ export class Layout extends React.Component {
 
         const flexStyle = flex && { flex } || {};
 
+        let onXSmallStyle = onXSmall && media.isXSmallScreen() && { flexDirection: onXSmall } || {};
+        let onSmallStyle = onSmall && media.isSmallScreen() && { flexDirection: onSmall } || {};
+        let onMediumStyle = onMedium && media.isMediumScreen() && { flexDirection: onMedium } || {};
+        let onLargeStyle = onLarge && media.isLargeScreen() && { flexDirection: onLarge } || {};
+        let onExtraLargeStyle = onExtraLarge && media.isExtraLargeScreen() && { flexDirection: onExtraLarge } || {};
+
         const layoutStyles = {
             display: 'flex',
             ...direction,
@@ -132,6 +155,11 @@ export class Layout extends React.Component {
             ...flexShrinkStyle,
             ...flexBasisStyle,
             ...flexStyle,
+            ...onXSmallStyle,
+            ...onSmallStyle,
+            ...onMediumStyle,
+            ...onLargeStyle,
+            ...onExtraLargeStyle,
             ...style
         };
 
