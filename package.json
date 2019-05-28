@@ -1,13 +1,16 @@
 {
   "name": "simple-flexbox",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "A simple component to make layouts with Flexbox",
   "main": "build/index.js",
-  "author": "Germán Llorente <llorentegerman@gmail.com>",
+  "author": {
+    "name": "Germán Llorente",
+    "email": "llorentegerman@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/llorentegerman/simple-flexbox.git"
+    "url": "git+https://github.com/llorentegerman/simple-flexbox"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

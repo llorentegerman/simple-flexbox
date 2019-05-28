@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as media from './media-queries';
+import { isArray } from 'util';
 
 export class Layout extends React.Component {
 
@@ -30,36 +30,37 @@ export class Layout extends React.Component {
 
         flex: PropTypes.string,
 
-        onXSmall: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
+        breakpoints: PropTypes.arrayOf(PropTypes.shape({
+            width: PropTypes.number,
+            style: PropTypes.object
+          }).isRequired),
 
-        onSmall: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
-
-        onMedium: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
-
-        onLarge: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
-
-        onExtraLarge: PropTypes.oneOf(['column', 'column-reverse', 'row', 'row-reverse']),
-
-        children: PropTypes.node.isRequired
+          children: PropTypes.node.isRequired
     };
 
-    getMainAxisAlign = (value) => {
+    getMainAxisAlign = (value, stretchIncluded = false) => {
         switch (value) {
+            case 'flex-start':
             case 'start': return 'flex-start';
             case 'center': return 'center';
+            case 'flex-end':
             case 'end': return 'flex-end';
             case 'space-between':
             case 'spaced': return 'space-between';
             case 'space-around':
             case 'around': return 'space-around';
+            case 'space-evenly': return stretchIncluded ? 'flex-start' : 'space-evenly';
+            case 'stretch': return stretchIncluded ? 'stretch' : 'flex-start';
             default: return 'flex-start';
         }
     }
 
     getCrossAxisAlign = (value) => {
         switch (value) {
+            case 'flex-start':
             case 'start': return 'flex-start';
             case 'center': return 'center';
+            case 'flex-end':
             case 'end': return 'flex-end';
             case 'stretch': return 'stretch';
             case 'baseline': return 'baseline';
@@ -77,12 +78,12 @@ export class Layout extends React.Component {
 
             // Main Axis
             justifyContent,
+            alignContent,
 
             // Cross Axis
             alignItems,
             alignSelf,
-            alignContent,
-
+            
             // Wrap
             wrap = false,
             wrapReverse = false,
@@ -92,11 +93,7 @@ export class Layout extends React.Component {
             flexBasis,
             flex,
 
-            onXSmall,
-            onSmall,
-            onMedium,
-            onLarge,
-            onExtraLarge,
+            breakpoints,
 
             ...ownProps
         } = this.props;
@@ -113,7 +110,7 @@ export class Layout extends React.Component {
             direction = { flexDirection: 'column-reverse' };
         }
 
-        let flexWrap = { flexWrap: 'noWrap' };
+        let flexWrap = { flexWrap: 'nowrap' };
         if (wrap) {
             flexWrap = { flexWrap: 'wrap' };
         }
@@ -127,7 +124,7 @@ export class Layout extends React.Component {
 
         const alignSelfStyle = alignSelf && { alignSelf: this.getCrossAxisAlign(alignSelf) } || {};
 
-        const alignContentStyle = alignContent && { alignContent: this.getMainAxisAlign(alignContent) } || {};
+        const alignContentStyle = alignContent && { alignContent: this.getMainAxisAlign(alignContent, true) } || {};
 
         const flexGrowStyle = flexGrow && { flexGrow } || {};
 
@@ -137,11 +134,13 @@ export class Layout extends React.Component {
 
         const flexStyle = flex && { flex } || {};
 
-        let onXSmallStyle = onXSmall && media.isXSmallScreen() && { flexDirection: onXSmall } || {};
-        let onSmallStyle = onSmall && media.isSmallScreen() && { flexDirection: onSmall } || {};
-        let onMediumStyle = onMedium && media.isMediumScreen() && { flexDirection: onMedium } || {};
-        let onLargeStyle = onLarge && media.isLargeScreen() && { flexDirection: onLarge } || {};
-        let onExtraLargeStyle = onExtraLarge && media.isExtraLargeScreen() && { flexDirection: onExtraLarge } || {};
+        const breakpointsStyles = !breakpoints || !isArray(breakpoints) || breakpoints.length === 0 ? {} :
+        breakpoints.reduce((style, value) => {
+            return {
+                ...style,
+                ...(window.innerWidth <= value.width ? value.style : {})
+            }
+        }, {});
 
         const layoutStyles = {
             display: 'flex',
@@ -155,12 +154,8 @@ export class Layout extends React.Component {
             ...flexShrinkStyle,
             ...flexBasisStyle,
             ...flexStyle,
-            ...onXSmallStyle,
-            ...onSmallStyle,
-            ...onMediumStyle,
-            ...onLargeStyle,
-            ...onExtraLargeStyle,
-            ...style
+            ...style,
+            ...breakpointsStyles
         };
 
         return (<div style={layoutStyles} {...ownProps}>
@@ -174,18 +169,23 @@ export class Row extends React.Component {
     static propTypes = {
         reverse: PropTypes.bool,
         vertical: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
-        horizontal: PropTypes.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around']),
+        horizontal: PropTypes.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
-        justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+        justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
         alignItems: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
         alignSelf: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
-        alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+        alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'stretch']),
 
         flex: PropTypes.string,
         flexGrow: PropTypes.number,
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
-        children: PropTypes.node.isRequired
+        breakpoints: PropTypes.arrayOf(PropTypes.shape({
+            width: PropTypes.number,
+            style: PropTypes.object
+          }).isRequired),
+
+          children: PropTypes.node.isRequired
     };
 
     render() {
@@ -218,17 +218,22 @@ export class Column extends React.Component {
     static propTypes = {
         reverse: PropTypes.bool,
         horizontal: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
-        vertical: PropTypes.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around']),
+        vertical: PropTypes.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
-        justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+        justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
         alignItems: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
         alignSelf: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
-        alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+        alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'stretch']),
 
         flex: PropTypes.string,
         flexGrow: PropTypes.number,
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
+        breakpoints: PropTypes.arrayOf(PropTypes.shape({
+            width: PropTypes.number,
+            style: PropTypes.object
+          }).isRequired),
+
         children: PropTypes.node.isRequired
     };
 
