@@ -1,6 +1,6 @@
 ## Simple Flexbox
 
-A simple component to make layouts with Flexbox.
+A simple way to make layouts with Flexbox.
 
 ## Installation
 
@@ -8,7 +8,7 @@ A simple component to make layouts with Flexbox.
 
 ## Examples
 
-See examples in [codesandbox](https://codesandbox.io/s/z3p04l3vol) or [storybook](https://llorentegerman.github.io/simple-flexbox-storybook/storybook-static/?full=0&down=1&left=1&panelRight=1&downPanel=storybooks%2Fstorybook-addon-knobs).
+See examples in [codesandbox](https://codesandbox.io/s/z3p04l3vol).
 
 There are two principal components, `Column` and `Row`.
 
@@ -44,12 +44,8 @@ There are two principal components, `Column` and `Row`.
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
+|breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see the breakpoints section below
 |children|	|	required	|
-|onXSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 479px
-|onSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 768px
-|onMedium|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 968px
-|onLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 1440px
-|onExtraLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth >= largeScreenWidth
 
 
 # Column props
@@ -69,12 +65,51 @@ There are two principal components, `Column` and `Row`.
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
+|breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see the breakpoints section below
 |children|	|	required	|
-|onXSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 479px
-|onSmal|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 768px
-|onMedium|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 968px
-|onLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth <= 1440px
-|onExtraLarge|'column', 'column-reverse', 'row', 'row-reverse'| change flex direction on window.innerWidth >= largeScreenWidth
+
+Breakpoints
+-------
+The `breakpoints` property allows you to apply styles depending on `window.innerWidth`.
+
+You must indicate the maximum **size** for which the styles will be applied, that means that the styles will be applied as long as `windows.width` <= **size**, where `size` is a number.
+The breakpoints property must have this structure:
+```
+{
+	size1: { styles1 },
+	size2: { styles2 },
+	...
+	sizeN: { stylesN }
+}
+```
+or
+```
+{
+	size1: 'flexDirection value, for example: column, column-reverse, row or row-reverse',
+	size2: 'column, column-reverse, row or row-reverse',
+	...
+	sizeN: 'column, column-reverse, row or row-reverse'
+}
+```
+for example:
+```
+<Column breakpoints={{
+	850: { flexDirection: 'row', backgroundColor: 'green' },
+	600: 'row-reverse'
+}}>
+	<b>Hello</b>
+    <span>world!</span>
+</Column>
+```
+Breakpoints styles are applied cumulatively, for example, for the `Column` declared above, these will be the styles, depending on the `window.innerWidth`:
+
+`window.innerWidth > 850` --> `styles = {}`
+
+`600 < window.innerWidth <= 850` --> `styles = { flexDirection: 'row', backgroundColor: 'green' }`
+
+`window.innerWidth <= 600` --> `styles = { flexDirection: 'row-reverse', backgroundColor: 'green' }`
+
+You can see this `breakpoints` examples in [codesandbox](https://codesandbox.io/s/z3p04l3vol).
 
 License
 -------

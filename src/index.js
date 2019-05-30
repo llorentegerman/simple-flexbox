@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isArray } from 'util';
 
 export class Layout extends React.Component {
 
@@ -30,12 +29,9 @@ export class Layout extends React.Component {
 
         flex: PropTypes.string,
 
-        breakpoints: PropTypes.arrayOf(PropTypes.shape({
-            width: PropTypes.number,
-            style: PropTypes.object
-          }).isRequired),
+        breakpoints: PropTypes.object,
 
-          children: PropTypes.node.isRequired
+        children: PropTypes.node.isRequired
     };
 
     getMainAxisAlign = (value, stretchIncluded = false) => {
@@ -134,11 +130,24 @@ export class Layout extends React.Component {
 
         const flexStyle = flex && { flex } || {};
 
-        const breakpointsStyles = !breakpoints || !isArray(breakpoints) || breakpoints.length === 0 ? {} :
-        breakpoints.reduce((style, value) => {
+        const breakpointsStyles = !breakpoints ? {} :
+        Object.keys(breakpoints).sort((a, b) => b-a).reduce((style, key) => {
+            if (isNaN(key)) {
+                return style;
+            }
+            const value = breakpoints[key];
+            if (typeof value === 'string') {
+                if (!['column', 'column-reverse', 'row', 'row-reverse'].includes(value)) {
+                    return style;
+                }
+                return {
+                    ...style,
+                    ...(window.innerWidth <= +key ? { flexDirection: value } : {})
+                }
+            }
             return {
                 ...style,
-                ...(window.innerWidth <= value.width ? value.style : {})
+                ...(window.innerWidth <= +key ? value : {})
             }
         }, {});
 
@@ -180,12 +189,9 @@ export class Row extends React.Component {
         flexGrow: PropTypes.number,
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
-        breakpoints: PropTypes.arrayOf(PropTypes.shape({
-            width: PropTypes.number,
-            style: PropTypes.object
-          }).isRequired),
+        breakpoints: PropTypes.object,
 
-          children: PropTypes.node.isRequired
+        children: PropTypes.node.isRequired
     };
 
     render() {
@@ -229,10 +235,7 @@ export class Column extends React.Component {
         flexGrow: PropTypes.number,
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
-        breakpoints: PropTypes.arrayOf(PropTypes.shape({
-            width: PropTypes.number,
-            style: PropTypes.object
-          }).isRequired),
+        breakpoints: PropTypes.object,
 
         children: PropTypes.node.isRequired
     };

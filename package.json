@@ -1,7 +1,7 @@
 {
   "name": "simple-flexbox",
   "version": "2.0.0",
-  "description": "A simple component to make layouts with Flexbox",
+  "description": "A simple way to make layouts with Flexbox",
   "main": "build/index.js",
   "author": {
     "name": "Germán Llorente",
