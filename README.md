@@ -1,6 +1,6 @@
 ## Simple Flexbox
 
-A simple way to make layouts with Flexbox.
+A simple way to make responsive layouts using Flexbox in React.
 
 ## Installation
 
