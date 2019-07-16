@@ -440,7 +440,8 @@ var Layout = exports.Layout = function (_React$Component) {
                 flexBasis = _props.flexBasis,
                 flex = _props.flex,
                 breakpoints = _props.breakpoints,
-                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints']);
+                element = _props.element,
+                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints', 'element']);
 
             var direction = { flexDirection: 'row' }; // default row
             if (column) {
@@ -496,8 +497,10 @@ var Layout = exports.Layout = function (_React$Component) {
                 display: 'flex'
             }, direction, justifyContentStyle, alignItemsStyle, alignSelfStyle, alignContentStyle, flexWrap, flexGrowStyle, flexShrinkStyle, flexBasisStyle, flexStyle, style, breakpointsStyles);
 
+            var Element = _react2.default.createElement(element || 'div');
+
             return _react2.default.createElement(
-                'div',
+                Element.type,
                 _extends({ style: layoutStyles }, ownProps),
                 this.props.children
             );
@@ -534,6 +537,8 @@ Layout.propTypes = {
     flex: _propTypes2.default.string,
 
     breakpoints: _propTypes2.default.object,
+
+    element: _propTypes2.default.string,
 
     children: _propTypes2.default.node.isRequired
 };

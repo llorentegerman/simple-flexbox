@@ -18,6 +18,7 @@ declare module "simple-flexbox" {
       breakpoints?: Breakpoints;
       reverse?: boolean;
       children: any;
+      element?: string;
       vertical?:
         | "start"
         | "center"
@@ -65,6 +66,7 @@ declare module "simple-flexbox" {
       flexBasis?: string;
       breakpoints?: Breakpoints;
       children: any;
+      element?: string;
       vertical?: "start" | "center" | "end" | "spaced" | "baseline";
       horizontal?:
         | "start"

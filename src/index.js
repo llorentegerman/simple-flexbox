@@ -31,6 +31,8 @@ export class Layout extends React.Component {
 
         breakpoints: PropTypes.object,
 
+        element: PropTypes.string,
+
         children: PropTypes.node.isRequired
     };
 
@@ -90,6 +92,7 @@ export class Layout extends React.Component {
             flex,
 
             breakpoints,
+            element,
 
             ...ownProps
         } = this.props;
@@ -167,9 +170,11 @@ export class Layout extends React.Component {
             ...breakpointsStyles
         };
 
-        return (<div style={layoutStyles} {...ownProps}>
+        const Element = React.createElement(element || 'div');
+
+        return (<Element.type style={layoutStyles} {...ownProps}>
             {this.props.children}
-        </div>);
+        </Element.type>);
     }
 }
 
