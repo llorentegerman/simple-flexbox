@@ -36,16 +36,16 @@ There are two main components, `Column` and `Row`.
 |justifyContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **rows**, *horizontal* and *justifyContent* are the same|
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **rows**, *vertical* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (vertical) axis	|
-|alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (vertical) axis	|
+|alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'stretch'|	other alignment for the cross (vertical) axis	|
 |flex|	string|		shorthand for grow, shrink and basis |
 |flexGrow|	number|		flex-grow |
-|flexShrink|	string|		flex-shrink |
+|flexShrink|	number|		flex-shrink |
 |flexBasis|	string|		flex-basis |
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
-|element | any html tag, such as: `article`, `section`, etc. | Defines to which html tag the styles will be applied. Default: `div` |
+|element |  'article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
 |children|	|	**required**	|
 
 
@@ -55,19 +55,19 @@ There are two main components, `Column` and `Row`.
 |reverse| true or false |		|
 |horizontal|	'start', 'center', 'end', 'stretch', 'baseline' |	at **column**, *horizontal* and *alignItems* are the same	|
 |vertical|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **column**, *vertical* and *justifyContent* are the same|
-|justifyContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **column**, *vertical* and *justifyContent* are the same|
+|justifyContent|'start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **column**, *vertical* and *justifyContent* are the same|
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **column**, *horizontal* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (horizontal) axis	|
-|alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around'|	other alignment for the cross (horizontal) axis	|
+|alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'stretch'|	other alignment for the cross (horizontal) axis	|
 |flex|	string|		shorthand for grow, shrink and basis |
 |flexGrow|	number|		flex-grow |
-|flexShrink|	string|		flex-shrink |
+|flexShrink|	number|		flex-shrink |
 |flexBasis|	string|		flex-basis |
 |wrap|	true or false|	default: false	|
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
-|element | any html tag, such as: `article`, `section`, etc. | Defines to which html tag the styles will be applied. Default: `div` |
+|element |  'article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
 |children|	|	**required**	|
 
 Breakpoints
