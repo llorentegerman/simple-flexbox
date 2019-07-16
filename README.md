@@ -32,11 +32,11 @@ There are two main components, `Column` and `Row`.
 | --------- | ----------- | ----------- |
 |reverse| true or false |		|
 |vertical|	'start', 'center', 'end', 'stretch', 'baseline' |	at **rows**, *vertical* and *alignItems* are the same	|
-|horizontal|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **rows**, *horizontal* and *justifyContent* are the same|
-|justifyContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **rows**, *horizontal* and *justifyContent* are the same|
+|horizontal|'start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **rows**, *horizontal* and *justifyContent* are the same|
+|justifyContent|'start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **rows**, *horizontal* and *justifyContent* are the same|
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **rows**, *vertical* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (vertical) axis	|
-|alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'stretch'|	other alignment for the cross (vertical) axis	|
+|alignContent|'start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'stretch'|	other alignment for the cross (vertical) axis	|
 |flex|	string|		shorthand for grow, shrink and basis |
 |flexGrow|	number|		flex-grow |
 |flexShrink|	number|		flex-shrink |
@@ -54,11 +54,11 @@ There are two main components, `Column` and `Row`.
 | --------- | ----------- | ----------- |
 |reverse| true or false |		|
 |horizontal|	'start', 'center', 'end', 'stretch', 'baseline' |	at **column**, *horizontal* and *alignItems* are the same	|
-|vertical|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **column**, *vertical* and *justifyContent* are the same|
+|vertical|'start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **column**, *vertical* and *justifyContent* are the same|
 |justifyContent|'start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly'|	at **column**, *vertical* and *justifyContent* are the same|
 |alignItems|'start', 'center', 'end', 'stretch', 'baseline' |	at **column**, *horizontal* and *alignItems* are the same	|
 |alignSelf|'start', 'center', 'end', 'stretch', 'baseline' |	other alignment for the cross (horizontal) axis	|
-|alignContent|'start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'stretch'|	other alignment for the cross (horizontal) axis	|
+|alignContent|'start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'stretch'|	other alignment for the cross (horizontal) axis	|
 |flex|	string|		shorthand for grow, shrink and basis |
 |flexGrow|	number|		flex-grow |
 |flexShrink|	number|		flex-shrink |

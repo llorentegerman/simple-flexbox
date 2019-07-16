@@ -10,13 +10,13 @@ export class Layout extends React.Component {
         rowReverse: PropTypes.bool,
         columnReverse: PropTypes.bool,
 
-        justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+        justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
         alignItems: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
 
         alignSelf: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
 
-        alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+        alignContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'stretch']),
 
         wrap: PropTypes.bool,
         wrapReverse: PropTypes.bool,
@@ -31,7 +31,7 @@ export class Layout extends React.Component {
 
         breakpoints: PropTypes.object,
 
-        element: PropTypes.string,
+        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
 
         children: PropTypes.node.isRequired
     };
@@ -183,7 +183,7 @@ export class Row extends React.Component {
     static propTypes = {
         reverse: PropTypes.bool,
         vertical: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
-        horizontal: PropTypes.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
+        horizontal: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
         justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
         alignItems: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
@@ -195,6 +195,7 @@ export class Row extends React.Component {
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
         breakpoints: PropTypes.object,
+        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
 
         children: PropTypes.node.isRequired
     };
@@ -229,7 +230,7 @@ export class Column extends React.Component {
     static propTypes = {
         reverse: PropTypes.bool,
         horizontal: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
-        vertical: PropTypes.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
+        vertical: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
         justifyContent: PropTypes.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
         alignItems: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
@@ -241,6 +242,7 @@ export class Column extends React.Component {
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
         breakpoints: PropTypes.object,
+        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
 
         children: PropTypes.node.isRequired
     };
