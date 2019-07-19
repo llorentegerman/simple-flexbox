@@ -517,13 +517,13 @@ Layout.propTypes = {
     rowReverse: _propTypes2.default.bool,
     columnReverse: _propTypes2.default.bool,
 
-    justifyContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+    justifyContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
     alignItems: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
 
     alignSelf: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
 
-    alignContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around']),
+    alignContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'stretch']),
 
     wrap: _propTypes2.default.bool,
     wrapReverse: _propTypes2.default.bool,
@@ -538,7 +538,7 @@ Layout.propTypes = {
 
     breakpoints: _propTypes2.default.object,
 
-    element: _propTypes2.default.string,
+    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
 
     children: _propTypes2.default.node.isRequired
 };
@@ -596,7 +596,7 @@ var Row = exports.Row = function (_React$Component2) {
 Row.propTypes = {
     reverse: _propTypes2.default.bool,
     vertical: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
-    horizontal: _propTypes2.default.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
+    horizontal: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
     justifyContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
     alignItems: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
@@ -608,6 +608,7 @@ Row.propTypes = {
     flexShrink: _propTypes2.default.number,
     flexBasis: _propTypes2.default.string,
     breakpoints: _propTypes2.default.object,
+    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
 
     children: _propTypes2.default.node.isRequired
 };
@@ -665,7 +666,7 @@ var Column = exports.Column = function (_React$Component3) {
 Column.propTypes = {
     reverse: _propTypes2.default.bool,
     horizontal: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch']),
-    vertical: _propTypes2.default.oneOf(['start', 'center', 'end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
+    vertical: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
 
     justifyContent: _propTypes2.default.oneOf(['start', 'flex-start', 'center', 'end', 'flex-end', 'spaced', 'space-between', 'around', 'space-around', 'space-evenly']),
     alignItems: _propTypes2.default.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
@@ -677,6 +678,7 @@ Column.propTypes = {
     flexShrink: _propTypes2.default.number,
     flexBasis: _propTypes2.default.string,
     breakpoints: _propTypes2.default.object,
+    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
 
     children: _propTypes2.default.node.isRequired
 };

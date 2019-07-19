@@ -1,37 +1,28 @@
 /// <reference types="react" />
 
 declare module "simple-flexbox" {
-    class Column extends React.Component<ColumnProps> {}
-    class Row extends React.Component<RowProps> {}
-  
+    class Column extends React.Component<ColumnProps> { }
+    class Row extends React.Component<RowProps> { }
+
     interface Breakpoints {
         [key: number]: string | object;
     }
-    interface ColumnProps extends React.HTMLAttributes<HTMLDivElement> {
-      className?: string;
-      style?: React.CSSProperties;
-      flexGrow?: number;
-      wrap?: boolean;
-      flex?: string;
-      flexShrink?: number;
-      flexBasis?: string;
-      breakpoints?: Breakpoints;
-      reverse?: boolean;
-      children: any;
-      element?: string;
-      vertical?:
-        | "start"
-        | "center"
-        | "end"
-        | "spaced"
-        | "space-between"
-        | "around"
-        | "space-around"
-        | "space-evenly";
-      horizontal?: "start" | "center" | "end" | "stretch";
-      justifyContent?:
-        | "start"
+    interface ColumnProps extends React.HTMLAttributes<React.ReactHTML> {
+        className?: string;
+        style?: React.CSSProperties;
+        flexGrow?: number;
+        wrap?: boolean;
+        wrapReverse?: boolean;
+        flex?: string;
+        flexShrink?: number;
+        flexBasis?: string;
+        breakpoints?: Breakpoints;
+        reverse?: boolean;
+        children: any;
+        element?: "article" | "aside" | "div" | "figure" | "footer" | "header" | "main" | "nav" | "section";
+        vertical?:
         | "flex-start"
+        | "start"
         | "center"
         | "end"
         | "flex-end"
@@ -40,46 +31,10 @@ declare module "simple-flexbox" {
         | "around"
         | "space-around"
         | "space-evenly";
-      alignItems?: "start" | "center" | "end" | "stretch" | "baseline";
-      alignSelf?: "start" | "center" | "end" | "stretch" | "baseline";
-      alignContent?:
-        | "start"
+        horizontal?: "start" | "center" | "end" | "stretch" | "baseline";
+        justifyContent?:
         | "flex-start"
-        | "center"
-        | "end"
-        | "flex-end"
-        | "spaced"
-        | "space-between"
-        | "around"
-        | "space-around"
-        | "stretch";
-    }
-  
-    interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
-      className?: string;
-      style?: React.CSSProperties;
-      wrap?: boolean;
-      reverse?: boolean;
-      flex?: string;
-      flexGrow?: number;
-      flexShrink?: number;
-      flexBasis?: string;
-      breakpoints?: Breakpoints;
-      children: any;
-      element?: string;
-      vertical?: "start" | "center" | "end" | "spaced" | "baseline";
-      horizontal?:
         | "start"
-        | "center"
-        | "end"
-        | "spaced"
-        | "space-between"
-        | "around"
-        | "space-around"
-        | "space-evenly";
-      justifyContent?:
-        | "start"
-        | "flex-start"
         | "center"
         | "end"
         | "flex-end"
@@ -88,9 +43,9 @@ declare module "simple-flexbox" {
         | "around"
         | "space-around"
         | "space-evenly";
-      alignItems?: "start" | "center" | "end" | "stretch" | "baseline";
-      alignSelf?: "start" | "center" | "end" | "stretch" | "baseline";
-      alignContent?:
+        alignItems?: "start" | "center" | "end" | "stretch" | "baseline";
+        alignSelf?: "start" | "center" | "end" | "stretch" | "baseline";
+        alignContent?:
         | "start"
         | "flex-start"
         | "center"
@@ -102,5 +57,55 @@ declare module "simple-flexbox" {
         | "space-around"
         | "stretch";
     }
-  }
-  
+
+    interface RowProps extends React.HTMLAttributes<React.ReactHTML> {
+        className?: string;
+        style?: React.CSSProperties;
+        wrap?: boolean;
+        wrapReverse?: boolean;
+        reverse?: boolean;
+        flex?: string;
+        flexGrow?: number;
+        flexShrink?: number;
+        flexBasis?: string;
+        breakpoints?: Breakpoints;
+        children: any;
+        element?: "article" | "aside" | "div" | "figure" | "footer" | "header" | "main" | "nav" | "section";
+        vertical?: "start" | "center" | "end" | "stretch" | "baseline";
+        horizontal?:
+        | "flex-start"
+        | "start"
+        | "center"
+        | "end"
+        | "flex-end"
+        | "spaced"
+        | "space-between"
+        | "around"
+        | "space-around"
+        | "space-evenly";
+        justifyContent?:
+        | "flex-start"
+        | "start"
+        | "center"
+        | "end"
+        | "flex-end"
+        | "spaced"
+        | "space-between"
+        | "around"
+        | "space-around"
+        | "space-evenly";
+        alignItems?: "start" | "center" | "end" | "stretch" | "baseline";
+        alignSelf?: "start" | "center" | "end" | "stretch" | "baseline";
+        alignContent?:
+        | "flex-start"
+        | "start"
+        | "center"
+        | "end"
+        | "flex-end"
+        | "spaced"
+        | "space-between"
+        | "around"
+        | "space-around"
+        | "stretch"
+    }
+}

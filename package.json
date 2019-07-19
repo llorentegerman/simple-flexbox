@@ -1,7 +1,7 @@
 {
   "name": "simple-flexbox",
-  "version": "2.1.0",
-  "description": "A simple way to make layouts with Flexbox",
+  "version": "2.1.1",
+  "description": "A simple way to make responsive layouts using Flexbox in React",
   "main": "build/index.js",
   "author": {
     "name": "Germán Llorente",
