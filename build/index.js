@@ -440,8 +440,9 @@ var Layout = exports.Layout = function (_React$Component) {
                 flexBasis = _props.flexBasis,
                 flex = _props.flex,
                 breakpoints = _props.breakpoints,
+                className = _props.className,
                 element = _props.element,
-                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints', 'element']);
+                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints', 'className', 'element']);
 
             var direction = { flexDirection: 'row' }; // default row
             if (column) {
@@ -477,6 +478,7 @@ var Layout = exports.Layout = function (_React$Component) {
 
             var flexStyle = flex && { flex: flex } || {};
 
+            var breakpointsClassNames = [];
             var breakpointsStyles = !breakpoints ? {} : Object.keys(breakpoints).sort(function (a, b) {
                 return b - a;
             }).reduce(function (style, key) {
@@ -486,12 +488,17 @@ var Layout = exports.Layout = function (_React$Component) {
                 var value = breakpoints[key];
                 if (typeof value === 'string') {
                     if (!['column', 'column-reverse', 'row', 'row-reverse'].includes(value)) {
+                        if (window.innerWidth <= +key) {
+                            breakpointsClassNames.push(value);
+                        }
                         return style;
                     }
                     return _extends({}, style, window.innerWidth <= +key ? { flexDirection: value } : {});
                 }
                 return _extends({}, style, window.innerWidth <= +key ? value : {});
             }, {});
+
+            var classNames = ((className || '') + ' ' + breakpointsClassNames.join(' ')).trim();
 
             var layoutStyles = _extends({
                 display: 'flex'
@@ -501,7 +508,7 @@ var Layout = exports.Layout = function (_React$Component) {
 
             return _react2.default.createElement(
                 Element.type,
-                _extends({ style: layoutStyles }, ownProps),
+                _extends({ style: layoutStyles, className: classNames }, ownProps),
                 this.props.children
             );
         }
@@ -538,7 +545,7 @@ Layout.propTypes = {
 
     breakpoints: _propTypes2.default.object,
 
-    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
+    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
     children: _propTypes2.default.node.isRequired
 };
@@ -608,7 +615,7 @@ Row.propTypes = {
     flexShrink: _propTypes2.default.number,
     flexBasis: _propTypes2.default.string,
     breakpoints: _propTypes2.default.object,
-    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
+    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
     children: _propTypes2.default.node.isRequired
 };
@@ -678,7 +685,7 @@ Column.propTypes = {
     flexShrink: _propTypes2.default.number,
     flexBasis: _propTypes2.default.string,
     breakpoints: _propTypes2.default.object,
-    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
+    element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
     children: _propTypes2.default.node.isRequired
 };

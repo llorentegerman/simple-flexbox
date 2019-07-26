@@ -29,7 +29,7 @@ const Test: React.FC<{}> = () => {
         wrap
         wrapReverse
         element={
-          "article" || "aside" || "div" || "figure" || "footer" || "header" || "main" || "nav" || "section"
+          "article" || "aside" || "div" || "figure" || "footer" || "form" || "header" || "main" || "nav" || "section"
         }
         reverse
         justifyContent={
@@ -88,7 +88,7 @@ const Test: React.FC<{}> = () => {
         wrap
         wrapReverse
         element={
-          "article" || "aside" || "div" || "figure" || "footer" || "header" || "main" || "nav" || "section"
+          "article" || "aside" || "div" || "figure" || "footer" || "form" || "header" || "main" || "nav" || "section"
         }
         reverse
         justifyContent={

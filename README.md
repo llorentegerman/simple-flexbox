@@ -8,6 +8,8 @@ A simple way to make responsive layouts using Flexbox in React. _Typescript supp
 
 ## Examples
 
+Look at a real UI created with `simple-flexbox` here: [https://llorentegerman.github.io/react-admin-dashboard/](https://llorentegerman.github.io/react-admin-dashboard/) and read the code here: [https://github.com/llorentegerman/react-admin-dashboard](https://github.com/llorentegerman/react-admin-dashboard).
+
 See examples in [codesandbox](https://codesandbox.io/s/z3p04l3vol).
 
 There are two main components, `Column` and `Row`.
@@ -45,7 +47,7 @@ There are two main components, `Column` and `Row`.
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
-|element |  'article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
+|element |  'article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
 |children|	|	**required**	|
 
 
@@ -67,7 +69,7 @@ There are two main components, `Column` and `Row`.
 |wrapReverse|	true or false|	default: false	|
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
-|element |  'article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
+|element |  'article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
 |children|	|	**required**	|
 
 Breakpoints
@@ -84,13 +86,14 @@ Breakpoints property must have this structure:
 	sizeN: { stylesN }
 }
 ```
-or
+you can also use a `flexDirection` value such as `column, column-reverse, row, row-reverse`, or a `className`, in this case, the name of the class cannot be any of the 4 possible values of `flexDirection`, so, `className` cannot be any of these `column`, `column-reverse`, `row` or `row-reverse`.
+
 ```
 {
 	size1: 'flexDirection value, for example: column, column-reverse, row or row-reverse',
-	size2: 'column, column-reverse, row or row-reverse',
+	size2: 'any className except column, column-reverse, row, row-reverse',
 	...
-	sizeN: 'column, column-reverse, row or row-reverse'
+	sizeN: 'column, column-reverse, row, row-reverse or className'
 }
 ```
 for example:
@@ -115,7 +118,7 @@ You can see this `breakpoints` examples in [codesandbox](https://codesandbox.io/
 
 License
 -------
-This software is released under the [MIT License](https://github.com/okunishinishi/node-mysqlspec/blob/master/LICENSE).
+This software is released under the [MIT License](https://github.com/llorentegerman/simple-flexbox/blob/master/LICENSE).
 
 Author
 -------

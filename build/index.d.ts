@@ -19,7 +19,7 @@ declare module "simple-flexbox" {
         breakpoints?: Breakpoints;
         reverse?: boolean;
         children: any;
-        element?: "article" | "aside" | "div" | "figure" | "footer" | "header" | "main" | "nav" | "section";
+        element?: "article" | "aside" | "div" | "figure" | "footer" | "form"  | "header" | "main" | "nav" | "section";
         vertical?:
         | "flex-start"
         | "start"
@@ -70,7 +70,7 @@ declare module "simple-flexbox" {
         flexBasis?: string;
         breakpoints?: Breakpoints;
         children: any;
-        element?: "article" | "aside" | "div" | "figure" | "footer" | "header" | "main" | "nav" | "section";
+        element?: "article" | "aside" | "div" | "figure" | "footer" | "form"  | "header" | "main" | "nav" | "section";
         vertical?: "start" | "center" | "end" | "stretch" | "baseline";
         horizontal?:
         | "flex-start"

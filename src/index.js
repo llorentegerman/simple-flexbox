@@ -31,7 +31,7 @@ export class Layout extends React.Component {
 
         breakpoints: PropTypes.object,
 
-        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
+        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
         children: PropTypes.node.isRequired
     };
@@ -92,6 +92,7 @@ export class Layout extends React.Component {
             flex,
 
             breakpoints,
+            className,
             element,
 
             ...ownProps
@@ -133,6 +134,7 @@ export class Layout extends React.Component {
 
         const flexStyle = flex && { flex } || {};
 
+        const breakpointsClassNames = [];
         const breakpointsStyles = !breakpoints ? {} :
         Object.keys(breakpoints).sort((a, b) => b-a).reduce((style, key) => {
             if (isNaN(key)) {
@@ -141,6 +143,9 @@ export class Layout extends React.Component {
             const value = breakpoints[key];
             if (typeof value === 'string') {
                 if (!['column', 'column-reverse', 'row', 'row-reverse'].includes(value)) {
+                    if (window.innerWidth <= +key) {
+                        breakpointsClassNames.push(value)
+                    }
                     return style;
                 }
                 return {
@@ -153,6 +158,8 @@ export class Layout extends React.Component {
                 ...(window.innerWidth <= +key ? value : {})
             }
         }, {});
+
+        const classNames = `${className || ''} ${breakpointsClassNames.join(' ')}`.trim();
 
         const layoutStyles = {
             display: 'flex',
@@ -172,7 +179,7 @@ export class Layout extends React.Component {
 
         const Element = React.createElement(element || 'div');
 
-        return (<Element.type style={layoutStyles} {...ownProps}>
+        return (<Element.type style={layoutStyles} className={classNames} {...ownProps}>
             {this.props.children}
         </Element.type>);
     }
@@ -195,7 +202,7 @@ export class Row extends React.Component {
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
         breakpoints: PropTypes.object,
-        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
+        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
         children: PropTypes.node.isRequired
     };
@@ -242,7 +249,7 @@ export class Column extends React.Component {
         flexShrink: PropTypes.number,
         flexBasis: PropTypes.string,
         breakpoints: PropTypes.object,
-        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'header', 'main', 'nav', 'section']),
+        element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
         children: PropTypes.node.isRequired
     };
