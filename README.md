@@ -16,7 +16,7 @@ There are two main components, `Column` and `Row`.
 
 ```html
 <Row vertical='center' horizontal='spaced'>
-	<Column vertical='end'>
+    <Column vertical='end'>
     	<span> Content 1 </span>
         <span> Content 2 </span>
     </Column>
@@ -49,7 +49,7 @@ There are two main components, `Column` and `Row`.
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
 |element |  'article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
 |children|	|	**required**	|
-
+|componentRef| ref, callback ref||
 
 # Column props
 |property|accepted values|description|
@@ -71,6 +71,7 @@ There are two main components, `Column` and `Row`.
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
 |element |  'article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
 |children|	|	**required**	|
+|componentRef| ref, callback ref||
 
 Breakpoints
 -------
