@@ -8,6 +8,7 @@ declare module "simple-flexbox" {
         [key: number]: string | object;
     }
     interface ColumnProps extends React.HTMLAttributes<React.ReactHTML> {
+        componentRef: ((ref: any) => void) | React.MutableRefObject<any>;
         className?: string;
         style?: React.CSSProperties;
         flexGrow?: number;
@@ -59,6 +60,7 @@ declare module "simple-flexbox" {
     }
 
     interface RowProps extends React.HTMLAttributes<React.ReactHTML> {
+        componentRef: ((ref: any) => void) | React.MutableRefObject<any>;
         className?: string;
         style?: React.CSSProperties;
         wrap?: boolean;

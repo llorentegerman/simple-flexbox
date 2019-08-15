@@ -442,7 +442,8 @@ var Layout = exports.Layout = function (_React$Component) {
                 breakpoints = _props.breakpoints,
                 className = _props.className,
                 element = _props.element,
-                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints', 'className', 'element']);
+                componentRef = _props.componentRef,
+                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints', 'className', 'element', 'componentRef']);
 
             var direction = { flexDirection: 'row' }; // default row
             if (column) {
@@ -508,7 +509,7 @@ var Layout = exports.Layout = function (_React$Component) {
 
             return _react2.default.createElement(
                 Element.type,
-                _extends({ style: layoutStyles, className: classNames }, ownProps),
+                _extends({ ref: componentRef, style: layoutStyles, className: classNames }, ownProps),
                 this.props.children
             );
         }
@@ -546,6 +547,8 @@ Layout.propTypes = {
     breakpoints: _propTypes2.default.object,
 
     element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
+
+    componentRef: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.shape({ current: _propTypes2.default.elementType })]),
 
     children: _propTypes2.default.node.isRequired
 };

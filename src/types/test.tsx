@@ -4,9 +4,13 @@ import React from "react";
 import { Row, Column } from "simple-flexbox";
 
 const Test: React.FC<{}> = () => {
+  let refFuncVer = React.useRef(null);
+  let refObjectVer = React.useRef(null);
+
   return (
     <>
       <Row
+        componentRef={(ref) => {refFuncVer.current = ref;}}
         horizontal={
           "start" ||
           "center" ||
@@ -21,7 +25,6 @@ const Test: React.FC<{}> = () => {
         onClick={() => {
           console.log("click");
         }}
-        ref={null}
         breakpoints={{
           850: { flexDirection: "row", backgroundColor: "green" },
           600: "row-reverse"
@@ -66,6 +69,7 @@ const Test: React.FC<{}> = () => {
       </Row>
 
       <Column
+        componentRef={refObjectVer}
         horizontal={"start" || "center" || "end" || "stretch" || "baseline"}
         vertical={
           "start" ||
@@ -80,7 +84,6 @@ const Test: React.FC<{}> = () => {
         onClick={() => {
           console.log("click");
         }}
-        ref={null}
         breakpoints={{
           850: { flexDirection: "row", backgroundColor: "green" },
           600: "row-reverse"

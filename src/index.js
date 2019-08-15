@@ -33,6 +33,11 @@ export class Layout extends React.Component {
 
         element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
+        componentRef: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.shape({ current: PropTypes.elementType })
+        ]),
+
         children: PropTypes.node.isRequired
     };
 
@@ -94,6 +99,8 @@ export class Layout extends React.Component {
             breakpoints,
             className,
             element,
+
+            componentRef,
 
             ...ownProps
         } = this.props;
@@ -179,7 +186,7 @@ export class Layout extends React.Component {
 
         const Element = React.createElement(element || 'div');
 
-        return (<Element.type style={layoutStyles} className={classNames} {...ownProps}>
+        return (<Element.type ref={componentRef} style={layoutStyles} className={classNames} {...ownProps}>
             {this.props.children}
         </Element.type>);
     }
