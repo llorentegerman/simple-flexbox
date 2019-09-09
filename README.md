@@ -48,6 +48,7 @@ There are two main components, `Column` and `Row`.
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
 |element |  'article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
+|componentRef|	createRef() or callback ref|	reference	|
 |children|	|	**required**	|
 
 
@@ -70,6 +71,7 @@ There are two main components, `Column` and `Row`.
 |any other property| any | i.e.: `style={{bakcgroundColor: 'red'}}`|
 |breakpoints|array of objects| different styles are applied depending on `window.innerWidth`, see **Breakpoints** section below |
 |element |  'article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section'  | Defines to which html tag the styles will be applied. Default: `div` |
+|componentRef|	createRef() or callback ref|	reference	|
 |children|	|	**required**	|
 
 Breakpoints

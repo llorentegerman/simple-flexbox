@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export class Layout extends React.Component {
+export class Layout extends React.PureComponent {
 
     static propTypes = {
         style: PropTypes.object,
@@ -32,6 +32,11 @@ export class Layout extends React.Component {
         breakpoints: PropTypes.object,
 
         element: PropTypes.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
+
+        componentRef: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.shape({ current: PropTypes.object })
+        ]),
 
         children: PropTypes.node.isRequired
     };
@@ -81,7 +86,7 @@ export class Layout extends React.Component {
             // Cross Axis
             alignItems,
             alignSelf,
-            
+
             // Wrap
             wrap = false,
             wrapReverse = false,
@@ -93,6 +98,8 @@ export class Layout extends React.Component {
 
             breakpoints,
             className,
+            componentRef,
+
             element,
 
             ...ownProps
@@ -136,28 +143,28 @@ export class Layout extends React.Component {
 
         const breakpointsClassNames = [];
         const breakpointsStyles = !breakpoints ? {} :
-        Object.keys(breakpoints).sort((a, b) => b-a).reduce((style, key) => {
-            if (isNaN(key)) {
-                return style;
-            }
-            const value = breakpoints[key];
-            if (typeof value === 'string') {
-                if (!['column', 'column-reverse', 'row', 'row-reverse'].includes(value)) {
-                    if (window.innerWidth <= +key) {
-                        breakpointsClassNames.push(value)
-                    }
+            Object.keys(breakpoints).sort((a, b) => b - a).reduce((style, key) => {
+                if (isNaN(key)) {
                     return style;
+                }
+                const value = breakpoints[key];
+                if (typeof value === 'string') {
+                    if (!['column', 'column-reverse', 'row', 'row-reverse'].includes(value)) {
+                        if (window.innerWidth <= +key) {
+                            breakpointsClassNames.push(value)
+                        }
+                        return style;
+                    }
+                    return {
+                        ...style,
+                        ...(window.innerWidth <= +key ? { flexDirection: value } : {})
+                    }
                 }
                 return {
                     ...style,
-                    ...(window.innerWidth <= +key ? { flexDirection: value } : {})
+                    ...(window.innerWidth <= +key ? value : {})
                 }
-            }
-            return {
-                ...style,
-                ...(window.innerWidth <= +key ? value : {})
-            }
-        }, {});
+            }, {});
 
         const classNames = `${className || ''} ${breakpointsClassNames.join(' ')}`.trim();
 
@@ -179,13 +186,13 @@ export class Layout extends React.Component {
 
         const Element = React.createElement(element || 'div');
 
-        return (<Element.type style={layoutStyles} className={classNames} {...ownProps}>
+        return (<Element.type ref={componentRef} style={layoutStyles} className={classNames} {...ownProps}>
             {this.props.children}
         </Element.type>);
     }
 }
 
-export class Row extends React.Component {
+export class Row extends React.PureComponent {
 
     static propTypes = {
         reverse: PropTypes.bool,
@@ -232,7 +239,7 @@ export class Row extends React.Component {
 
 }
 
-export class Column extends React.Component {
+export class Column extends React.PureComponent {
 
     static propTypes = {
         reverse: PropTypes.bool,
