@@ -357,8 +357,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Layout = exports.Layout = function (_React$Component) {
-    _inherits(Layout, _React$Component);
+var Layout = exports.Layout = function (_React$PureComponent) {
+    _inherits(Layout, _React$PureComponent);
 
     function Layout() {
         var _ref;
@@ -441,8 +441,9 @@ var Layout = exports.Layout = function (_React$Component) {
                 flex = _props.flex,
                 breakpoints = _props.breakpoints,
                 className = _props.className,
+                componentRef = _props.componentRef,
                 element = _props.element,
-                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints', 'className', 'element']);
+                ownProps = _objectWithoutProperties(_props, ['style', 'column', 'rowReverse', 'columnReverse', 'justifyContent', 'alignContent', 'alignItems', 'alignSelf', 'wrap', 'wrapReverse', 'flexGrow', 'flexShrink', 'flexBasis', 'flex', 'breakpoints', 'className', 'componentRef', 'element']);
 
             var direction = { flexDirection: 'row' }; // default row
             if (column) {
@@ -508,14 +509,14 @@ var Layout = exports.Layout = function (_React$Component) {
 
             return _react2.default.createElement(
                 Element.type,
-                _extends({ style: layoutStyles, className: classNames }, ownProps),
+                _extends({ ref: componentRef, style: layoutStyles, className: classNames }, ownProps),
                 this.props.children
             );
         }
     }]);
 
     return Layout;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 Layout.propTypes = {
     style: _propTypes2.default.object,
@@ -547,11 +548,13 @@ Layout.propTypes = {
 
     element: _propTypes2.default.oneOf(['article', 'aside', 'div', 'figure', 'footer', 'form', 'header', 'main', 'nav', 'section']),
 
+    componentRef: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.shape({ current: _propTypes2.default.object })]),
+
     children: _propTypes2.default.node.isRequired
 };
 
-var Row = exports.Row = function (_React$Component2) {
-    _inherits(Row, _React$Component2);
+var Row = exports.Row = function (_React$PureComponent2) {
+    _inherits(Row, _React$PureComponent2);
 
     function Row() {
         _classCallCheck(this, Row);
@@ -598,7 +601,7 @@ var Row = exports.Row = function (_React$Component2) {
     }]);
 
     return Row;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 Row.propTypes = {
     reverse: _propTypes2.default.bool,
@@ -620,8 +623,8 @@ Row.propTypes = {
     children: _propTypes2.default.node.isRequired
 };
 
-var Column = exports.Column = function (_React$Component3) {
-    _inherits(Column, _React$Component3);
+var Column = exports.Column = function (_React$PureComponent3) {
+    _inherits(Column, _React$PureComponent3);
 
     function Column() {
         _classCallCheck(this, Column);
@@ -668,7 +671,7 @@ var Column = exports.Column = function (_React$Component3) {
     }]);
 
     return Column;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 Column.propTypes = {
     reverse: _propTypes2.default.bool,

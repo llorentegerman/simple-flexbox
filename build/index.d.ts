@@ -1,13 +1,14 @@
 /// <reference types="react" />
 
 declare module "simple-flexbox" {
-    class Column extends React.Component<ColumnProps> { }
-    class Row extends React.Component<RowProps> { }
+    class Column extends React.PureComponent<ColumnProps> { }
+    class Row extends React.PureComponent<RowProps> { }
 
     interface Breakpoints {
         [key: number]: string | object;
     }
     interface ColumnProps extends React.HTMLAttributes<React.ReactHTML> {
+        componentRef?: ((ref: any) => void) | React.MutableRefObject<any>;
         className?: string;
         style?: React.CSSProperties;
         flexGrow?: number;
@@ -59,6 +60,7 @@ declare module "simple-flexbox" {
     }
 
     interface RowProps extends React.HTMLAttributes<React.ReactHTML> {
+        componentRef?: ((ref: any) => void) | React.MutableRefObject<any>;
         className?: string;
         style?: React.CSSProperties;
         wrap?: boolean;
