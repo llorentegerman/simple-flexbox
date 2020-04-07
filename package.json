@@ -1,45 +1,45 @@
 {
-  "name": "simple-flexbox",
-  "version": "2.3.0",
-  "description": "A simple way to make responsive layouts using Flexbox in React",
-  "main": "build/index.js",
-  "author": {
-    "name": "Germán Llorente",
-    "email": "llorentegerman@gmail.com"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/llorentegerman/simple-flexbox"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch",
-    "build": "webpack"
-  },
-  "dependencies": {
-    "react": "^15.5.4",
-    "webpack": "^2.6.1"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.23",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.5.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
-  },
-  "bugs": {
-    "url": "https://github.com/llorentegerman/simple-flexbox/issues"
-  },
-  "homepage": "https://github.com/llorentegerman/simple-flexbox#readme",
-  "keywords": [
-    "flexbox",
-    "react",
-    "simple-flexbox",
-    "simple",
-    "layout"
-  ]
+    "name": "simple-flexbox",
+    "version": "2.3.1",
+    "description": "A simple way to make responsive layouts using Flexbox in React",
+    "main": "build/index.js",
+    "author": {
+        "name": "Germán Llorente",
+        "email": "llorentegerman@gmail.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/llorentegerman/simple-flexbox"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack --watch",
+        "build": "webpack"
+    },
+    "dependencies": {
+        "react": "^15.5.4",
+        "webpack": "^2.6.1"
+    },
+    "devDependencies": {
+        "@types/react": "^16.8.23",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
+        "babel-preset-env": "^1.5.1",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1"
+    },
+    "bugs": {
+        "url": "https://github.com/llorentegerman/simple-flexbox/issues"
+    },
+    "homepage": "https://github.com/llorentegerman/simple-flexbox#readme",
+    "keywords": [
+        "flexbox",
+        "react",
+        "simple-flexbox",
+        "simple",
+        "layout"
+    ]
 }
