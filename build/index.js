@@ -489,14 +489,14 @@ var Layout = exports.Layout = function (_React$PureComponent) {
                 var value = breakpoints[key];
                 if (typeof value === 'string') {
                     if (!['column', 'column-reverse', 'row', 'row-reverse'].includes(value)) {
-                        if (window.innerWidth <= +key) {
+                        if (window && window.innerWidth <= +key) {
                             breakpointsClassNames.push(value);
                         }
                         return style;
                     }
-                    return _extends({}, style, window.innerWidth <= +key ? { flexDirection: value } : {});
+                    return _extends({}, style, window && window.innerWidth <= +key ? { flexDirection: value } : {});
                 }
-                return _extends({}, style, window.innerWidth <= +key ? value : {});
+                return _extends({}, style, window && window.innerWidth <= +key ? value : {});
             }, {});
 
             var classNames = ((className || '') + ' ' + breakpointsClassNames.join(' ')).trim();
@@ -654,7 +654,8 @@ var Column = exports.Column = function (_React$PureComponent3) {
 
             return _react2.default.createElement(
                 Layout,
-                _extends({ column: true,
+                _extends({
+                    column: true,
                     columnReverse: columnReverse,
                     alignItems: horizontal || alignItems,
                     justifyContent: vertical || justifyContent,
